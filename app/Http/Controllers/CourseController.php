@@ -35,7 +35,7 @@ class CourseController extends Controller
         $request->validate([
             "page_number" => "required|integer"
         ]);
-        $courses = Course::paginate($request->page_number);
+        $courses = Course::orderBy('id', 'DESC')->paginate($request->page_number);
         return response(["message" => "Courses fetched","courses" => $courses,"status" => "success"], 200);
     }
     public function remove_delete(Request $request) {
