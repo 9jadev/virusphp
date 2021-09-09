@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\PeriodController;
-
+use App\Http\Controllers\VenueController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -36,6 +36,12 @@ Route::group(['prefix'=>'courses'], function(){
     Route::post('/single', [CourseController::class, 'single'])->middleware(['auth:sanctum']);
     Route::post('/delete', [CourseController::class, 'remove_delete'])->middleware(['auth:sanctum']);
     Route::post('/all', [CourseController::class, 'all'])->middleware(['auth:sanctum']);
+});
+
+Route::group(['prefix'=>'venues'], function(){
+    Route::post('/create', [VenueController::class, 'createvenue'])->middleware(['auth:sanctum']);
+    Route::post('/delete', [VenueController::class, 'venuedelete'])->middleware(['auth:sanctum']);
+    Route::post('/all', [VenueController::class, 'all'])->middleware(['auth:sanctum']);
 });
 
 Route::group(['prefix'=>'period'], function(){
