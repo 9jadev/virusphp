@@ -46,4 +46,5 @@ Route::group(['prefix'=>'venues'], function(){
 
 Route::group(['prefix'=>'period'], function(){
     Route::post('/create', [PeriodController::class, 'createperiod'])->middleware(['auth:sanctum']);
+    Route::post('/timetable', [PeriodController::class, 'gettimetable'])->middleware(['auth:sanctum']);
 });

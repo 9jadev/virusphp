@@ -11,6 +11,7 @@ class period extends Model
     protected $table = "periods";
     protected $fillable = [
         "level",
+        "department",
         "day",
         "7-8",
         "8-9",
